@@ -1,2 +1,6 @@
 # CMSC441Project
-UMBC CMSC441Project Repository
+
+Group Member:
+Myunghoon Cha
+Jason Reckner
+Matt Mangee
