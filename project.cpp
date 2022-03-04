@@ -43,7 +43,7 @@ void basicMatrix(int** A, int** B, int** result, int matrixSize){
 
 // void StrassenMatrix(int** A, int** B, int** result, int matrixSize){
 //   if(matrixSize > 2){
-//     divide();
+//     split();
 //   }
 //   A11 = A[0];
 //   A12;
@@ -70,8 +70,6 @@ void basicMatrix(int** A, int** B, int** result, int matrixSize){
 //   insert(C12, result, 0, (n/2)-1));
 //   insert(C21, result, 0, (n/2)-1));
 //   insert(C22, result, 0, (n/2)-1));
-
-//   return result;
 // }
 
 void printData(double* data[]){
@@ -127,61 +125,57 @@ int main() {
   }
   int matrixSize = 0;
 
-  for (int i = 0; i < TEN; i++) {
-		for (int j = 0; j < 5; j++) {
-				dataTable[i][j] = rand() % 101;
-		}
-	}
-  // //Iteration to make data in different sizes;
-  // for(int count = 0; count < TEN; count++){
-  //   //increase the size
-  //   matrixSize = pow(2, count+1);
 
-  //   //declare the matrixA, matrixB, result
-  //   int** matrixA = new int*[matrixSize];
-  //   int** matrixB = new int*[matrixSize];
-  //   int** resultBasic = new int*[matrixSize];
-  //   int** resultStrassen = new int*[matrixSize];
-  //   for(int i = 0; i < matrixSize; i++){
-  //     matrixA[i] = new int[matrixSize];
-  //     matrixB[i] = new int[matrixSize];
-  //     resultBasic[i] = new int[matrixSize];
-  //     resultStrassen[i] = new int[matrixSize];
-  //   }
-    
-  //   //Genrating the random numbers in matrixA and matrixB
-  //   generateMatrix(matrixA, matrixSize);
-  //   generateMatrix(matrixB, matrixSize);
-  //   //Store the result of basic matrix multiplication
-  //   start = clock();
-  //   basicMatrix(matrixA, matrixB, resultBasic, matrixSize);
-  //   stop = clock();
-  //   timeTaken = stop - start;
-  //   dataTable[count][0] = timeTaken;
-    
-  //   //store the memory data for basic matrix multiplication
+  //Iteration to make data in different sizes;
+  for(int count = 0; count < TEN; count++){
+    //increase the size
+    matrixSize = pow(2, count+1);
 
-  //   //Store the result of Strassen matrix multiplciation
-  //   start = clock();
-  //   StrassenMatrix(matrixA, matrixB, resultStrassen, matrixSize);
-  //   stop = clock();
-  //   timeTaken = stop - start;
-  //   dataTable[count][1] = timeTaken;
+    //declare the matrixA, matrixB, result
+    int** matrixA = new int*[matrixSize];
+    int** matrixB = new int*[matrixSize];
+    int** resultBasic = new int*[matrixSize];
+    int** resultStrassen = new int*[matrixSize];
+    for(int i = 0; i < matrixSize; i++){
+      matrixA[i] = new int[matrixSize];
+      matrixB[i] = new int[matrixSize];
+      resultBasic[i] = new int[matrixSize];
+      resultStrassen[i] = new int[matrixSize];
+    }
     
-  //   //store the memory data for Strassen matrix multiplication
+    //Genrating the random numbers in matrixA and matrixB
+    generateMatrix(matrixA, matrixSize);
+    generateMatrix(matrixB, matrixSize);
+    //Store the result of basic matrix multiplication
+    start = clock();
+    basicMatrix(matrixA, matrixB, resultBasic, matrixSize);
+    stop = clock();
+    timeTaken = stop - start;
+    dataTable[count][0] = timeTaken;
+    
+    //store the memory data for basic matrix multiplication
 
-  //   //delete the matrices
-  //   for(int i = 0; i < matrixSize; i++){
-  //     delete[] matrixA[i];
-  //     delete[] matrixB[i];
-  //     delete[] resultBasic[i];
-  //     delete[] resultStrassen[i];
-  //   }
-  //   delete[] matrixA;
-  //   delete[] matrixB;
-  //   delete[] resultBasic;
-  //   delete[] resultStrassen;
-  // }
+    //Store the result of Strassen matrix multiplciation
+    start = clock();
+    StrassenMatrix(matrixA, matrixB, resultStrassen, matrixSize);
+    stop = clock();
+    timeTaken = stop - start;
+    dataTable[count][1] = timeTaken;
+    
+    //store the memory data for Strassen matrix multiplication
+    
+    //delete the matrices
+    for(int i = 0; i < matrixSize; i++){
+      delete[] matrixA[i];
+      delete[] matrixB[i];
+      delete[] resultBasic[i];
+      delete[] resultStrassen[i];
+    }
+    delete[] matrixA;
+    delete[] matrixB;
+    delete[] resultBasic;
+    delete[] resultStrassen;
+  }
    
   //print out data table;
   // ----------------------------------------------
@@ -192,7 +186,7 @@ int main() {
   //|500 |			  |			    |			    |
   
   printData(dataTable);
-  for(int i =0; i < 5; i++){
+  for(int i =0; i < TEN; i++){
     delete[] dataTable[i];
   }
   delete[] dataTable;
