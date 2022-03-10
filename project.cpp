@@ -73,9 +73,9 @@ void basicMatrix(int** A, int** B, int** result, int matrixSize){
 // }
 
 void printData(double* data[]){
-	cout << setw(6) << "Size" << setw(10) << "BasicT" << setw(10) << "StarssenT" << setw(10) << "BasicM" << setw(10) << "StarssenM" << endl;
+	cout << setw(6) << "Size" << setw(16) << "BasicT" << setw(16) << "StarssenT" << setw(16) << "BasicM" << setw(16) << "StarssenM" << endl;
   for(int i = 0; i < TEN; i++){
-  	cout << setw(6) << data[i][0] << setw(10) << data[i][1] << setw(10) << data[i][2] << setw(10) << data[i][3] << setw(10) << data[i][4] << endl;
+  	cout << setw(6) << data[i][0] << setw(16) << data[i][1] << setw(16) << data[i][2] << setw(16) << data[i][3] << setw(16) << data[i][4] << endl;
   }
 }
 
@@ -142,7 +142,9 @@ int main() {
       resultBasic[i] = new int[matrixSize];
       resultStrassen[i] = new int[matrixSize];
     }
-    
+
+    //Size of matrices into data table.
+    dataTable[count][0] = matrixSize;
     //Genrating the random numbers in matrixA and matrixB
     generateMatrix(matrixA, matrixSize);
     generateMatrix(matrixB, matrixSize);
@@ -151,16 +153,16 @@ int main() {
     basicMatrix(matrixA, matrixB, resultBasic, matrixSize);
     stop = clock();
     timeTaken = stop - start;
-    dataTable[count][0] = timeTaken;
+    dataTable[count][1] = timeTaken;
     
     //store the memory data for basic matrix multiplication
 
     //Store the result of Strassen matrix multiplciation
     start = clock();
-    StrassenMatrix(matrixA, matrixB, resultStrassen, matrixSize);
+    //StrassenMatrix(matrixA, matrixB, resultStrassen, matrixSize);
     stop = clock();
     timeTaken = stop - start;
-    dataTable[count][1] = timeTaken;
+    dataTable[count][2] = timeTaken;
     
     //store the memory data for Strassen matrix multiplication
     
