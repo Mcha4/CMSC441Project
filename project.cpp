@@ -100,8 +100,7 @@ void printMatrix(int** matrix, int matrixSize){
 
 //StrassenMatrix Multiplication
 void StrassenMatrix(int** A, int** B, int** result, int matrixSize){
-  
-  if(A[0][0] != 0 && B[0][0] != 0 && matrixSize > 2){
+  if(A[0][0] != 0 && B[0][0] != 0 && matrixSize > 256){
     //Divide 
     //Initalize
     int** A11 = new int*[matrixSize/2];
@@ -172,6 +171,7 @@ void StrassenMatrix(int** A, int** B, int** result, int matrixSize){
     //M7 = (A12 - A22) * (B21 + B22)
     StrassenMatrix(subMatrix(A12, A22, matrixSize/2), addMatrix(B21, B22, matrixSize/2), M7, matrixSize/2);
 
+
     //C11 = M1 + M4 - M5 + M7
     //C12 = M3 + M5
     //C21 = M2 + M4
@@ -180,19 +180,10 @@ void StrassenMatrix(int** A, int** B, int** result, int matrixSize){
     int** C12 = addMatrix(M3, M5, matrixSize/2);
     int** C21 = addMatrix(M2, M4, matrixSize/2);
     int** C22 = addMatrix(subMatrix(M1, M2, matrixSize/2), addMatrix(M3, M6, matrixSize/2), matrixSize/2);
-    // insertResult(result, C11, 0, 0, matrixSize/2);
-    // insertResult(result, C12, 0, matrixSize/2, matrixSize/2);
-    // insertResult(result, C21, matrixSize/2, 0, matrixSize/2);
-    // insertResult(result, C22, 0, matrixSize/2, matrixSize/2);
-
-    for (int i = 0; i < matrixSize/2; i++) {
-        for (int j = 0 ; j < matrixSize/2; j++) {
-            result[i][j] = C11[i][j];
-            result[i][j + matrixSize/2] = C12[i][j];
-            result[i + matrixSize/2][j] = C21[i][j];
-            result[i + matrixSize/2][j + matrixSize/2] = C22[i][j];
-        }
-    }
+    insertResult(result, C11, 0, 0, matrixSize/2);
+    insertResult(result, C12, 0, matrixSize/2, matrixSize/2);
+    insertResult(result, C21, matrixSize/2, 0, matrixSize/2);
+    insertResult(result, C22, 0, matrixSize/2, matrixSize/2);
 
     //Delete pointers
 
@@ -212,6 +203,10 @@ void StrassenMatrix(int** A, int** B, int** result, int matrixSize){
       delete[] M5[i];
       delete[] M6[i];
       delete[] M7[i];
+      delete[] C11[i];
+      delete[] C12[i];
+      delete[] C21[i];
+      delete[] C22[i];
     }
     delete[] A11;
     delete[] A12;
@@ -228,6 +223,10 @@ void StrassenMatrix(int** A, int** B, int** result, int matrixSize){
     delete[] M5;
     delete[] M6;
     delete[] M7;
+    delete[] C11;
+    delete[] C12;
+    delete[] C21;
+    delete[] C22;
   } else {
     for(int i = 0; i < matrixSize; i++){
       for(int j = 0; j < matrixSize; j++){
@@ -242,7 +241,7 @@ void StrassenMatrix(int** A, int** B, int** result, int matrixSize){
 //Print data in table
 void printData(double* data[]){
 	cout << setw(6) << "Size" << setw(16) << "BasicT" << setw(16) << "StarssenT" << setw(16) << "BasicM" << setw(16) << "StarssenM" << endl;
-  for(int i = 0; i < TEN; i++){
+  for(int i = 0; i < 8; i++){
   	cout << setw(6) << data[i][0] << setw(16) << setprecision(3) << data[i][1] << setw(16) << setprecision(3) << data[i][2] << setw(16) << setprecision(3) << data[i][3] << setw(16) << setprecision(3) << data[i][4] << endl;
   }
 }
@@ -252,16 +251,16 @@ int main() {
   clock_t start, stop;
   double timeTaken = 0.0;
   double** dataTable = new double*[10];
-  for(int i = 0; i < 10; i++){
+  for(int i = 0; i < 8; i++){
     dataTable[i] = new double[5];
   }
-  int matrixSize = 0;
+  int matrixSize = 5;
 
 
   //Iteration to make data in different sizes;
-  for(int count = 0; count < 1; count++){
+  for(int count = 0; count < 8; count++){
     //increase the size
-    matrixSize = pow(2, count+1);
+    
 
     //declare the matrixA, matrixB, result
     int** matrixA = new int*[matrixSize];
@@ -290,8 +289,9 @@ int main() {
     //store the memory data for basic matrix multiplication
 
     //Store the result of Strassen matrix multiplciation
-    start = clock();
     cout << "--------------------" << matrixSize << "--------------------" << endl;
+    start = clock();
+    
     StrassenMatrix(matrixA, matrixB, resultStrassen, matrixSize);
     stop = clock();
     timeTaken = stop - start;
@@ -310,6 +310,7 @@ int main() {
     delete[] matrixB;
     delete[] resultBasic;
     delete[] resultStrassen;
+    matrixSize = (matrixSize * 2);
   }
    
   //print out data table;
@@ -321,7 +322,7 @@ int main() {
   //|500 |			  |			    |			    |
   
   printData(dataTable);
-  for(int i =0; i < TEN; i++){
+  for(int i =0; i < 8; i++){
     delete[] dataTable[i];
   }
   delete[] dataTable;
