@@ -4,21 +4,10 @@
 #include <stdlib.h>
 #include <iomanip>
 #include <cmath>
-//#include <sys/resource.h>
+#include <sys/resource.h>
+#include <unistd.h>
 
 using namespace std;
-
-//Basic Matrix
-//generate matrix
-//Enable tick
-//calculate matrix
-//finish tick
-//store the data of n, tick vector
-//change the size of array
-//enable tick
-//calculate matrix
-//finish tick
-//generate matrix
 #define TEN 10
 
 void generateMatrix(int** matrix, int size) {
@@ -39,34 +28,22 @@ void basicMatrix(int** A, int** B, int** result, int matrixSize){
 	}
 }
 
-
-
 //Add two matrices and return result
-int** addMatrix(int** A, int** B, int matrixSize){
-  int** result = new int*[matrixSize];
-  for(int i = 0; i < matrixSize; i++){
-    result[i] = new int[matrixSize];
-  }
+void addMatrix(int** A, int** B, int** result, int matrixSize){
   for(int i = 0; i < matrixSize; i++){
     for(int j = 0; j < matrixSize; j++){
       result[i][j] = A[i][j] + B[i][j];
     }
   }
-  return result;
 }
 
 //Subtract two matrices and return result
-int** subMatrix(int** A, int** B, int matrixSize){
-  int** result = new int*[matrixSize];
-  for(int i = 0; i < matrixSize; i++){
-    result[i] = new int[matrixSize];
-  }
+void subMatrix(int** A, int** B, int** result, int matrixSize){
   for(int i = 0; i < matrixSize; i++){
     for(int j = 0; j < matrixSize; j++){
       result[i][j] = A[i][j] - B[i][j];
     }
   }
-  return result;
 }
 
 //Doesn't need but IDK
@@ -118,6 +95,13 @@ void StrassenMatrix(int** A, int** B, int** result, int matrixSize){
     int** M5 = new int*[matrixSize/2];
     int** M6 = new int*[matrixSize/2];
     int** M7 = new int*[matrixSize/2];
+    int** matrixA = new int*[matrixSize/2];
+    int** matrixB = new int*[matrixSize/2];
+    
+    int** C11 = new int*[matrixSize/2];
+    int** C12 = new int*[matrixSize/2];
+    int** C21 = new int*[matrixSize/2];
+    int** C22 = new int*[matrixSize/2];
     for(int i = 0; i < matrixSize/2; i++){
       A11[i] = new int[matrixSize/2];
       A12[i] = new int[matrixSize/2];
@@ -135,6 +119,13 @@ void StrassenMatrix(int** A, int** B, int** result, int matrixSize){
       M5[i] = new int[matrixSize/2];
       M6[i] = new int[matrixSize/2];
       M7[i] = new int[matrixSize/2];
+      matrixA[i] = new int[matrixSize/2];
+      matrixB[i] = new int[matrixSize/2];
+      
+      C11[i] = new int[matrixSize/2];
+      C12[i] = new int[matrixSize/2];
+      C21[i] = new int[matrixSize/2];
+      C22[i] = new int[matrixSize/2];
     }
     if(matrixSize > 2){
       for(int i = 0; i < matrixSize/2; i++){
@@ -150,36 +141,56 @@ void StrassenMatrix(int** A, int** B, int** result, int matrixSize){
         }
       }
     }
+    
     //M1 = (A11 + A22) * (B11 + B22)
-    StrassenMatrix((addMatrix(A11, A22, matrixSize/2)), addMatrix(B11, B22, matrixSize/2), M1, matrixSize/2);
+    addMatrix(A11, A22, matrixA, matrixSize/2);
+    addMatrix(B11, B22, matrixB, matrixSize/2);
+    StrassenMatrix(matrixA, matrixB, M1, matrixSize/2);
 
     //M2 = (A21 + A22) * B11
-    StrassenMatrix((addMatrix(A21, A22, matrixSize/2)), B11, M2, matrixSize/2);
+    addMatrix(A21, A22, matrixA, matrixSize/2);
+    StrassenMatrix(matrixA, B11, M2, matrixSize/2);
 
     //M3 = A11 * (B12-B22)
-    StrassenMatrix(A11, subMatrix(B11, B22, matrixSize/2), M3, matrixSize/2);
+    subMatrix(B11, B22, matrixB, matrixSize/2);
+    StrassenMatrix(A11, matrixB, M3, matrixSize/2);
 
     //M4 = A22 * (B21 - B11)
-    StrassenMatrix(A22, addMatrix(B21, B11, matrixSize/2), M4, matrixSize/2);
+    addMatrix(B21, B11, matrixB, matrixSize/2);
+    StrassenMatrix(A22, matrixB, M4, matrixSize/2);
 
     //M5 = (A11 + A12) * B22
-    StrassenMatrix(addMatrix(A11, A12, matrixSize/2), B22, M5, matrixSize/2);
+    addMatrix(A11, A12, matrixA, matrixSize/2);
+    StrassenMatrix(matrixA, B22, M5, matrixSize/2);
 
     //M6 = (A21- A11) * (B11 + B12)
-    StrassenMatrix((subMatrix(A21, A11, matrixSize/2)), addMatrix(B11, B12, matrixSize/2), M6, matrixSize/2);
+    subMatrix(A21, A11, matrixA, matrixSize/2);
+    addMatrix(B11, B12, matrixB, matrixSize/2);
+    StrassenMatrix(matrixA, matrixB, M6, matrixSize/2);
 
     //M7 = (A12 - A22) * (B21 + B22)
-    StrassenMatrix(subMatrix(A12, A22, matrixSize/2), addMatrix(B21, B22, matrixSize/2), M7, matrixSize/2);
+    subMatrix(A12, A22, matrixA, matrixSize/2);
+    addMatrix(B21, B22, matrixB, matrixSize/2);
+    StrassenMatrix(matrixA, matrixB, M7, matrixSize/2);
 
 
     //C11 = M1 + M4 - M5 + M7
+    
+    addMatrix(M1, M4, matrixA, matrixSize/2);
+    addMatrix(M5, M7, matrixB, matrixSize/2);
+    subMatrix(matrixA, matrixB, C11, matrixSize/2);
+
     //C12 = M3 + M5
+    addMatrix(M3, M5, C12, matrixSize/2);
+
     //C21 = M2 + M4
+    addMatrix(M2, M4, C21, matrixSize/2);
+
     //C22 = M1 - M2 + M3 + M6
-    int** C11 = subMatrix(addMatrix(M1, M4, matrixSize/2), addMatrix(M5, M7, matrixSize/2), matrixSize/2);
-    int** C12 = addMatrix(M3, M5, matrixSize/2);
-    int** C21 = addMatrix(M2, M4, matrixSize/2);
-    int** C22 = addMatrix(subMatrix(M1, M2, matrixSize/2), addMatrix(M3, M6, matrixSize/2), matrixSize/2);
+    subMatrix(M1, M2, matrixA, matrixSize/2);
+    addMatrix(M3, M6, matrixB, matrixSize/2);
+    addMatrix(matrixA, matrixB, C22, matrixSize/2);
+
     insertResult(result, C11, 0, 0, matrixSize/2);
     insertResult(result, C12, 0, matrixSize/2, matrixSize/2);
     insertResult(result, C21, matrixSize/2, 0, matrixSize/2);
@@ -187,27 +198,29 @@ void StrassenMatrix(int** A, int** B, int** result, int matrixSize){
 
     //Delete pointers
 
-    for(int i = 0; i < matrixSize/2; i++){
-      delete[] A11[i];
-      delete[] A12[i];
-      delete[] A21[i];
-      delete[] A22[i];
-      delete[] B11[i];
-      delete[] B12[i];
-      delete[] B21[i];
-      delete[] B22[i];
-      delete[] M1[i];
-      delete[] M2[i];
-      delete[] M3[i];
-      delete[] M4[i];
-      delete[] M5[i];
-      delete[] M6[i];
-      delete[] M7[i];
-      delete[] C11[i];
-      delete[] C12[i];
-      delete[] C21[i];
-      delete[] C22[i];
-    }
+    // for(int i = 0; i < matrixSize/2; i++){
+    //   delete[] A11[i];
+    //   delete[] A12[i];
+    //   delete[] A21[i];
+    //   delete[] A22[i];
+    //   delete[] B11[i];
+    //   delete[] B12[i];
+    //   delete[] B21[i];
+    //   delete[] B22[i];
+    //   delete[] M1[i];
+    //   delete[] M2[i];
+    //   delete[] M3[i];
+    //   delete[] M4[i];
+    //   delete[] M5[i];
+    //   delete[] M6[i];
+    //   delete[] M7[i];
+    //   delete[] C11[i];
+    //   delete[] C12[i];
+    //   delete[] C21[i];
+    //   delete[] C22[i];
+    //   delete[] matrixA[i];
+    //   delete[] matrixB[i];
+    // }
     delete[] A11;
     delete[] A12;
     delete[] A21;
@@ -227,6 +240,8 @@ void StrassenMatrix(int** A, int** B, int** result, int matrixSize){
     delete[] C12;
     delete[] C21;
     delete[] C22;
+    delete[] matrixA;
+    delete[] matrixB;
   } else {
     for(int i = 0; i < matrixSize; i++){
       for(int j = 0; j < matrixSize; j++){
@@ -250,18 +265,16 @@ void printData(double* data[]){
 int main() {
   clock_t start, stop;
   double timeTaken = 0.0;
-  double** dataTable = new double*[10];
+  double** dataTable = new double*[8];
   for(int i = 0; i < 8; i++){
     dataTable[i] = new double[5];
   }
   int matrixSize = 5;
 
-
   //Iteration to make data in different sizes;
   for(int count = 0; count < 8; count++){
     //increase the size
     
-
     //declare the matrixA, matrixB, result
     int** matrixA = new int*[matrixSize];
     int** matrixB = new int*[matrixSize];
@@ -285,7 +298,13 @@ int main() {
     stop = clock();
     timeTaken = stop - start;
     dataTable[count][1] = timeTaken;
-    
+    double size = 0;
+    for(int i = 0; i < matrixSize; i++){
+      for(int j = 0; j < matrixSize; j++){
+        size += sizeof(resultBasic[i][j]);
+      }
+    }
+    dataTable[count][3] = size;
     //store the memory data for basic matrix multiplication
 
     //Store the result of Strassen matrix multiplciation
@@ -297,8 +316,10 @@ int main() {
     timeTaken = stop - start;
     dataTable[count][2] = timeTaken;
     
-    //store the memory data for Strassen matrix multiplication
+    dataTable[count][4] = 212;
     
+    //store the memory data for Strassen matrix multiplication
+    matrixSize = (matrixSize * 2);
     //delete the matrices
     for(int i = 0; i < matrixSize; i++){
       delete[] matrixA[i];
@@ -310,7 +331,6 @@ int main() {
     delete[] matrixB;
     delete[] resultBasic;
     delete[] resultStrassen;
-    matrixSize = (matrixSize * 2);
   }
    
   //print out data table;
