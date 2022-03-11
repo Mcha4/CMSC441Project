@@ -41,9 +41,12 @@ void basicMatrix(int** A, int** B, int** result, int matrixSize){
 
 
 
-
+//Add two matrices and return result
 int** addMatrix(int** A, int** B, int matrixSize){
-  int** result;
+  int** result = new int*[matrixSize];
+  for(int i = 0; i < matrixSize; i++){
+    result[i] = new int[matrixSize];
+  }
   for(int i = 0; i < matrixSize; i++){
     for(int j = 0; j < matrixSize; j++){
       result[i][j] = A[i][j] + B[i][j];
@@ -53,7 +56,10 @@ int** addMatrix(int** A, int** B, int matrixSize){
 }
 
 int** subMatrix(int** A, int** B, int matrixSize){
-  int** result;
+  int** result = new int*[matrixSize];
+  for(int i = 0; i < matrixSize; i++){
+    result[i] = new int[matrixSize];
+  }
   for(int i = 0; i < matrixSize; i++){
     for(int j = 0; j < matrixSize; j++){
       result[i][j] = A[i][j] - B[i][j];
@@ -78,6 +84,7 @@ void insertResult(int** parent, int** child, int from, int to, int matrixSize){
   }
 }
 
+//StrassenMatrix Multiplication
 void StrassenMatrix(int** A, int** B, int** result, int matrixSize){
   
   //Divide 
@@ -100,12 +107,22 @@ void StrassenMatrix(int** A, int** B, int** result, int matrixSize){
     B21[i] = new int[matrixSize/2];
     B22[i] = new int[matrixSize/2];
   }
-  if(matrixSize > 2){
-    split(A, A11, 0, matrixSize/2, matrixSize/2);
-    split(A, A12, matrixSize/2, matrixSize, matrixSize/2);
-    split(A, A21, 0, matrixSize/2, matrixSize/2);
-    split(A, A22, matrixSize/2, matrixSize, matrixSize/2);
+  cout << "Where" << endl;
+  if(matrixSize >= 2){
+    for(int i = 0; i <matrixSize/2; i++){
+      for(int j = 0; j <matrixSize/2; j++) {
+          A11[i][j] = A[i][j];
+          A12[i][j] = A[i][matrixSize/2+j];
+          A21[i][j] = A[matrixSize/2+i][j];
+          A22[i][j] = A[matrixSize/2+i][matrixSize/2+j];
+          B11[i][j] = B[i][j];
+          B12[i][j] = B[i][matrixSize/2+j];
+          B21[i][j] = B[matrixSize/2+i][j];
+          B22[i][j] = B[matrixSize/2+i][matrixSize/2+j];
+      }
+    }
   }
+  
   
   //M1 = (A11 + A22) * (B11 + B22)
   int** M1 = new int*[matrixSize];
@@ -150,10 +167,38 @@ void StrassenMatrix(int** A, int** B, int** result, int matrixSize){
   insertResult(result, C22, 0, matrixSize/2, matrixSize/2);
 
   //Delete pointers
-  for(int i = 0; i < matrixSize; i++){
+  for(int i = 0; i < matrixSize/2; i++){
     delete[] A11[i];
+    delete[] A12[i];
+    delete[] A21[i];
+    delete[] A22[i];
+    delete[] A11[i];
+    delete[] A12[i];
+    delete[] A21[i];
+    delete[] A22[i];
+    delete[] M1[i];
+    delete[] M2[i];
+    delete[] M3[i];
+    delete[] M4[i];
+    delete[] M5[i];
+    delete[] M6[i];
+    delete[] M7[i];
   }
   delete[] A11;
+  delete[] A12;
+  delete[] A21;
+  delete[] A22;
+  delete[] A11;
+  delete[] A12;
+  delete[] A21;
+  delete[] A22;
+  delete[] M1;
+  delete[] M2;
+  delete[] M3;
+  delete[] M4;
+  delete[] M5;
+  delete[] M6;
+  delete[] M7;
 }
 
 //Print data in table
@@ -168,8 +213,7 @@ void printData(double* data[]){
 int main() {
   clock_t start, stop;
   double timeTaken = 0.0;
-  double** dataTable;
-  dataTable = new double*[10];
+  double** dataTable = new double*[10];
   for(int i = 0; i < TEN; i++){
     dataTable[i] = new double[5];
   }
@@ -177,7 +221,7 @@ int main() {
 
 
   //Iteration to make data in different sizes;
-  for(int count = 0; count < TEN; count++){
+  for(int count = 0; count < 1; count++){
     //increase the size
     matrixSize = pow(2, count+1);
 
@@ -209,7 +253,7 @@ int main() {
 
     //Store the result of Strassen matrix multiplciation
     start = clock();
-    //StrassenMatrix(matrixA, matrixB, resultStrassen, matrixSize);
+    StrassenMatrix(matrixA, matrixB, resultStrassen, matrixSize);
     stop = clock();
     timeTaken = stop - start;
     dataTable[count][2] = timeTaken;
