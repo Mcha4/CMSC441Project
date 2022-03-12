@@ -4,21 +4,9 @@
 #include <stdlib.h>
 #include <iomanip>
 #include <cmath>
-//#include <sys/resource.h>
-
+#include <sys/resource.h>
 using namespace std;
 
-//Basic Matrix
-//generate matrix
-//Enable tick
-//calculate matrix
-//finish tick
-//store the data of n, tick vector
-//change the size of array
-//enable tick
-//calculate matrix
-//finish tick
-//generate matrix
 #define TEN 10
 
 void generateMatrix(int** matrix, int size) {
@@ -38,8 +26,6 @@ void basicMatrix(int** A, int** B, int** result, int matrixSize){
     }
 	}
 }
-
-
 
 //Add two matrices and return result
 int** addMatrix(int** A, int** B, int matrixSize){
@@ -100,7 +86,7 @@ void printMatrix(int** matrix, int matrixSize){
 
 //StrassenMatrix Multiplication
 void StrassenMatrix(int** A, int** B, int** result, int matrixSize){
-  if(A[0][0] != 0 && B[0][0] != 0 && matrixSize > 256){
+  if(A[0][0] != 0 && B[0][0] != 0 && matrixSize > 2){
     //Divide 
     //Initalize
     int** A11 = new int*[matrixSize/2];
@@ -228,13 +214,7 @@ void StrassenMatrix(int** A, int** B, int** result, int matrixSize){
     delete[] C21;
     delete[] C22;
   } else {
-    for(int i = 0; i < matrixSize; i++){
-      for(int j = 0; j < matrixSize; j++){
-        for(int k = 0; k < matrixSize; k++){
-          result[i][j] = result[i][j] + A[i][k] * B[k][j];
-        }
-      }
-    }
+    basicMatrix(A, B, result, matrixSize);
   }
 }
 
@@ -242,7 +222,7 @@ void StrassenMatrix(int** A, int** B, int** result, int matrixSize){
 void printData(double* data[]){
 	cout << setw(6) << "Size" << setw(16) << "BasicT" << setw(16) << "StarssenT" << setw(16) << "BasicM" << setw(16) << "StarssenM" << endl;
   for(int i = 0; i < 8; i++){
-  	cout << setw(6) << data[i][0] << setw(16) << setprecision(3) << data[i][1] << setw(16) << setprecision(3) << data[i][2] << setw(16) << setprecision(3) << data[i][3] << setw(16) << setprecision(3) << data[i][4] << endl;
+  	cout << setw(6) << data[i][0] << setw(16) << data[i][1] << setw(16) << data[i][2] << setw(16) << data[i][3] << setw(16) << data[i][4] << endl;
   }
 }
 
@@ -250,18 +230,16 @@ void printData(double* data[]){
 int main() {
   clock_t start, stop;
   double timeTaken = 0.0;
-  double** dataTable = new double*[10];
+  double** dataTable = new double*[8];
   for(int i = 0; i < 8; i++){
     dataTable[i] = new double[5];
   }
   int matrixSize = 5;
 
-
   //Iteration to make data in different sizes;
   for(int count = 0; count < 8; count++){
     //increase the size
     
-
     //declare the matrixA, matrixB, result
     int** matrixA = new int*[matrixSize];
     int** matrixB = new int*[matrixSize];
@@ -285,17 +263,22 @@ int main() {
     stop = clock();
     timeTaken = stop - start;
     dataTable[count][1] = timeTaken;
-    
+    dataTable[count][3] = 1;
+
     //store the memory data for basic matrix multiplication
 
     //Store the result of Strassen matrix multiplciation
     cout << "--------------------" << matrixSize << "--------------------" << endl;
     start = clock();
     
-    StrassenMatrix(matrixA, matrixB, resultStrassen, matrixSize);
+    if(count < 3){
+      StrassenMatrix(matrixA, matrixB, resultStrassen, matrixSize);
+    }
+    
     stop = clock();
     timeTaken = stop - start;
     dataTable[count][2] = timeTaken;
+    dataTable[count][4] = 1;
     
     //store the memory data for Strassen matrix multiplication
     
