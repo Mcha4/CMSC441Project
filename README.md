@@ -32,3 +32,8 @@ Size          BasicT       StarssenT          BasicM       StarssenM
    160        1.53e+05         1.6e+05        1.02e+05             212
    320        1.23e+06        1.12e+06         4.1e+05             212
    640           1e+07        8.33e+06        1.64e+06             212
+   
+   
+   Size of algorithm:
+   Basic matrix = matrixSize * matrixSize * int pointer * 3
+   StarssenMatrix = (matrixSize * matrixSize) * 3 + (M1~M7 + C11~C22) * matirxSize/256 + matrixSize * matrixSize * matirxSize%256
