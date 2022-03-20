@@ -5,8 +5,6 @@ Myunghoon Cha
 Jason Reckner
 Matt Mangee
 
--------------------------------------------------------------------------------------------------
-
 Progress Report
 https://docs.google.com/document/d/1PO1W4ZdfBqBbq8ROVMgjB6G-rJ26EJ51fdB-3N8BWBU/edit?usp=sharing
 
@@ -22,9 +20,6 @@ https://docs.google.com/document/d/1PO1W4ZdfBqBbq8ROVMgjB6G-rJ26EJ51fdB-3N8BWBU/
    640        7.41e+05        6.37e+05               0               0
 1.28e+03        7.23e+06        7.21e+06               0               0
 2.56e+03        1.97e+08        3.54e+07               0               0
-<<<<<<< Updated upstream
-=======
-
 
   Size          BasicT       StarssenT          BasicM       StarssenM
      5             586             522             100             212
@@ -35,7 +30,7 @@ https://docs.google.com/document/d/1PO1W4ZdfBqBbq8ROVMgjB6G-rJ26EJ51fdB-3N8BWBU/
    160        1.53e+05         1.6e+05        1.02e+05             212
    320        1.23e+06        1.12e+06         4.1e+05             212
    640           1e+07        8.33e+06        1.64e+06             212
----------------------------------------------------------------------------------------------
+
    Update 2022-03-20
    ※ printMatirx() function in matrix.cpp
    ※ it makes errors when tried to print out the result of starssen
@@ -78,4 +73,3 @@ https://docs.google.com/document/d/1PO1W4ZdfBqBbq8ROVMgjB6G-rJ26EJ51fdB-3N8BWBU/
    256           76309           75455     1.57286e+06     1.57286e+06
    512          621026          537643     6.29146e+06     1.73015e+07
   1024     6.05302e+06     3.78716e+06     2.51658e+07      6.9206e+07
->>>>>>> Stashed changes
