@@ -1,5 +1,4 @@
 #include <iostream>
-#include <vector>
 #include <time.h>
 #include <stdlib.h>
 #include <iomanip>
@@ -196,8 +195,9 @@ void StrassenMatrix(int** A, int** B, int** result, int matrixSize){
     insertResult(result, C21, matrixSize/2, 0, matrixSize/2);
     insertResult(result, C22, 0, matrixSize/2, matrixSize/2);
 
-    //Delete pointers
+    // Delete pointers
 
+<<<<<<< Updated upstream
     // for(int i = 0; i < matrixSize/2; i++){
     //   delete[] A11[i];
     //   delete[] A12[i];
@@ -221,6 +221,31 @@ void StrassenMatrix(int** A, int** B, int** result, int matrixSize){
     //   delete[] matrixA[i];
     //   delete[] matrixB[i];
     // }
+=======
+    for(int i = 0; i < matrixSize/2; i++){
+      delete[] A11[i];
+      delete[] A12[i];
+      delete[] A21[i];
+      delete[] A22[i];
+      delete[] B11[i];
+      delete[] B12[i];
+      delete[] B21[i];
+      delete[] B22[i];
+      delete[] M1[i];
+      delete[] M2[i];
+      delete[] M3[i];
+      delete[] M4[i];
+      delete[] M5[i];
+      delete[] M6[i];
+      delete[] M7[i];
+      delete[] C11[i];
+      delete[] C12[i];
+      delete[] C21[i];
+      delete[] C22[i];
+      delete[] matrixA[i];
+      delete[] matrixB[i];
+    }
+>>>>>>> Stashed changes
     delete[] A11;
     delete[] A12;
     delete[] A21;
@@ -310,8 +335,14 @@ int main() {
     //Store the result of Strassen matrix multiplciation
     cout << "--------------------" << matrixSize << "--------------------" << endl;
     start = clock();
+<<<<<<< Updated upstream
     
     StrassenMatrix(matrixA, matrixB, resultStrassen, matrixSize);
+=======
+    if(count < 2){
+      StrassenMatrix(matrixA, matrixB, resultStrassen, matrixSize);
+    }
+>>>>>>> Stashed changes
     stop = clock();
     timeTaken = stop - start;
     dataTable[count][2] = timeTaken;
@@ -333,14 +364,6 @@ int main() {
     delete[] resultStrassen;
   }
    
-  //print out data table;
-  // ----------------------------------------------
-  //|size|B.M.R.	| S.M.R		| B.M.M.	| S.M.M.
-  //|10  |			  |			    |			    |
-  //|100 |			  |			    |			    |
-  //|200 |			  |			    |			    |
-  //|500 |			  |			    |			    |
-  
   printData(dataTable);
   for(int i =0; i < 8; i++){
     delete[] dataTable[i];
