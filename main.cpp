@@ -3,7 +3,7 @@ using namespace std;
 
 
 int main(){
-    //To check data change the iteration
+    //To check data change the iteration and matrixSize
     int iteration = 6;
     clock_t start, stop;
     double timeTaken = 0.0;    

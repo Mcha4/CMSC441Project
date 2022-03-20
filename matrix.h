@@ -25,9 +25,7 @@ class matrix{
         
         matrix* basicMatrix(matrix* A, matrix* B);
         matrix* strassenMatrix(matrix* A, matrix* B);
-
-        matrix& insertResult(matrix& parent, matrix& child, int from, int to);
-        matrix& split(matrix& parent, matrix& child, int from, int to);
+        
     private:
         int rows;
         int cols;

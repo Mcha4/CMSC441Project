@@ -89,7 +89,7 @@ matrix* matrix::basicMatrix(matrix* A, matrix* B){
 }
 
 matrix* matrix::strassenMatrix(matrix* A, matrix* B){
-    if(rows > 2){
+    if(rows > 256){
         int matrixSize = A->getRows()/2;
         matrix A11(matrixSize, matrixSize), A12(matrixSize, matrixSize);
         matrix A21(matrixSize, matrixSize), A22(matrixSize, matrixSize);
@@ -123,12 +123,16 @@ matrix* matrix::strassenMatrix(matrix* A, matrix* B){
 
         matrix temp1(matrixSize, matrixSize);
         matrix temp2(matrixSize, matrixSize);
+
+        
         memoryUsage += A11.memoryUsage + A12.memoryUsage + A21.memoryUsage + A22.memoryUsage;
         memoryUsage += B11.memoryUsage + B12.memoryUsage + B21.memoryUsage + B22.memoryUsage;
         memoryUsage += C11.memoryUsage + C12.memoryUsage + C21.memoryUsage + C22.memoryUsage;
         memoryUsage += M1.memoryUsage + M2.memoryUsage + M3.memoryUsage + M4.memoryUsage;
         memoryUsage += M5.memoryUsage + M6.memoryUsage + M7.memoryUsage;
         memoryUsage += temp1.memoryUsage + temp2.memoryUsage;
+
+
         M1.strassenMatrix(temp1.addMatrix(&A11, &A22), temp2.addMatrix(&B11, &B22));
         M2.strassenMatrix(temp1.addMatrix(&A11, &A22), &B11);
         M3.strassenMatrix(&A11, temp2.subMatrix(&B12, &B22));
@@ -173,33 +177,16 @@ void matrix::printMatrix(){
             cout << endl;
         }
     } else {
-
-        cout << setw(6) << "Size" << setw(16) << "BasicT" << setw(16) << "StarssenT" << setw(16) << "BasicM" << setw(16) << "StarssenM" << endl;
+        cout << "| " << "Size" << "| " << "BasicT" << "| " << "StarssenT" << "| " << "BasicM" << "| " << "StarssenM" << " | " << endl;
+        cout << "| -: | -: | -: | -: | -: |" << endl;
+        //cout << setw(6) << "Size" << setw(16) << "BasicT" << setw(16) << "StarssenT" << setw(16) << "BasicM" << setw(16) << "StarssenM" << endl;
         for(int i = 0; i < rows; i++){
-            cout << setw(6) << data[i][0];
-            cout << setw(16) << data[i][1];
-            cout << setw(16) << data[i][2];
-            cout << setw(16) << data[i][3];
-            cout << setw(16) << data[i][4] << endl;
+            cout << "| " << data[i][0];
+            cout << "| " << data[i][1];
+            cout << "| " << data[i][2];
+            cout << "| " << data[i][3];
+            cout << "| " << data[i][4] << "| " << endl;
         }
 
     }
-}
-
-matrix& matrix::insertResult(matrix& parent, matrix& child, int from, int to){
-    for(int i1 = 0, i2 = from; i1 < child.rows; i1++, i2++){
-        for(int j1 = 0, j2 = to; j1 < child.cols; j1++, j2++){
-            parent.data[i2][j2] = child.data[i1][j1];
-        }
-    }
-    return parent;
-}
-
-matrix& matrix::split(matrix& parent, matrix& child, int from, int to){
-    for(int i1 = 0, i2 = from; i1 < child.rows; i1++, i2++){
-        for(int j1 = 0, j2 = to; j1 < child.cols; j1++, j2++){
-            child.data[i1][j1] = parent.data[i2][j2];
-        }
-    }
-    return child;
 }
