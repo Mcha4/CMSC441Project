@@ -6,18 +6,27 @@ Jason Reckner
 Matt Mangee
 
 Progress Report
+
 https://docs.google.com/document/d/1PO1W4ZdfBqBbq8ROVMgjB6G-rJ26EJ51fdB-3N8BWBU/edit?usp=sharing
 
    Update 2022-03-20
+   
    ※ printMatirx() function in matrix.cpp
+   
    ※ it makes errors when tried to print out the result of starssen
+   
    ※ Cut-off for Starssen algorithm is 256
+   
    ※ if matrix size is less than 256 it's same as basicmatrix function.
 
    ※ Formula of memory usage of matrices:
+   
    ※ Basic Matrix Multiplication = A + B + C
+   
    ※ A, B, C = matrixSize * matrixSize * sizeof(double*)
+   
    ※ Strassen = A + B + D
+   
    ※ D = (21) * A/2
  
 When cut-off for Strassen is 2 it takes more time than Basic matrix Multiplication.
