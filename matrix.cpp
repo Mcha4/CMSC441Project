@@ -8,6 +8,7 @@ matrix::matrix(){
     for(int i = 0; i < rows; i++){
         data[i] = new double[cols];
     }
+
     memoryUsage = 0;
 }
 
@@ -38,11 +39,11 @@ int matrix::getRows(){
 int matrix::getCols(){
     return cols;
 }
-int matrix::getMemory(){
-    return memoryUsage;
-}
 double** matrix::getData(){
     return data;
+}
+int matrix::getMemory(){
+    return memoryUsage;
 }
 
 void matrix::setData(int row, int col, double input){
@@ -85,8 +86,6 @@ matrix* matrix::basicMatrix(matrix* A, matrix* B){
             }
         }
     }
-    void * currPtrLocation = (void*)(&data[rows-1][cols-1]);
-
     return this;
 }
 
@@ -127,15 +126,6 @@ matrix* matrix::strassenMatrix(matrix* A, matrix* B){
         matrix temp1(matrixSize, matrixSize);
         matrix temp2(matrixSize, matrixSize);
 
-        
-        memoryUsage += A11.memoryUsage + A12.memoryUsage + A21.memoryUsage + A22.memoryUsage;
-        memoryUsage += B11.memoryUsage + B12.memoryUsage + B21.memoryUsage + B22.memoryUsage;
-        memoryUsage += C11.memoryUsage + C12.memoryUsage + C21.memoryUsage + C22.memoryUsage;
-        memoryUsage += M1.memoryUsage + M2.memoryUsage + M3.memoryUsage + M4.memoryUsage;
-        memoryUsage += M5.memoryUsage + M6.memoryUsage + M7.memoryUsage;
-        memoryUsage += temp1.memoryUsage + temp2.memoryUsage;
-
-
         M1.strassenMatrix(temp1.addMatrix(&A11, &A22), temp2.addMatrix(&B11, &B22));
         M2.strassenMatrix(temp1.addMatrix(&A11, &A22), &B11);
         M3.strassenMatrix(&A11, temp2.subMatrix(&B12, &B22));
@@ -143,6 +133,8 @@ matrix* matrix::strassenMatrix(matrix* A, matrix* B){
         M5.strassenMatrix(temp1.addMatrix(&A11, &A12), &B22);
         M6.strassenMatrix(temp1.subMatrix(&A21, &A11), temp2.addMatrix(&B11, &B12));
         M7.strassenMatrix(temp1.subMatrix(&A12, &A22), temp2.addMatrix(&B21, &B22));
+
+        memoryUsage += M1.getMemory() + M2.getMemory() + M3.getMemory() + M4.getMemory() + M5.getMemory() + M6.getMemory() + M7.getMemory();
 
         C11.subMatrix(temp1.addMatrix(&M1, &M4), temp2.addMatrix(&M5, &M7));
         C12.addMatrix(&M3, &M5);
@@ -174,7 +166,7 @@ void matrix::printMatrix(){
             cout << endl;
         }
     } else {
-        cout << "| " << "Size" << "| " << "BasicT" << "| " << "StarssenT" << "| " << "BasicM" << "| " << "StarssenM" << " | " << endl;
+        cout << "| " << "Size" << "| " << "BasicTime(s)" << "| " << "StarssenTime(s)" << "| " << "BasicM(bytes)" << "| " << "StarssenM(bytes)" << " | " << endl;
         cout << "| -: | -: | -: | -: | -: |" << endl;
         //cout << setw(6) << "Size" << setw(16) << "BasicT" << setw(16) << "StarssenT" << setw(16) << "BasicM" << setw(16) << "StarssenM" << endl;
         for(int i = 0; i < rows; i++){

@@ -10,7 +10,7 @@ int main(){
     matrix dataTable(iteration, 5);
     int count = 0;
     int matrixSize = 10;
-    
+
     while(count < iteration){
         matrix A(matrixSize, matrixSize);
         matrix B(matrixSize, matrixSize);
@@ -21,7 +21,6 @@ int main(){
         dataTable.setData(count, 0, matrixSize);
 
         //Operation
-
         //When trying print the C after basicMatrix it occur errors. but data is printed
         //Time
         start = clock();
@@ -29,22 +28,24 @@ int main(){
         stop = clock();
         timeTaken = stop - start;
         //Space
+        int memoryBasic = A.getMemory() + B.getMemory() + C.getMemory();
         //Insert the simulation data into table
         dataTable.setData(count, 1, timeTaken/CLOCKS_PER_SEC);
-        dataTable.setData(count, 3, 0);
+        dataTable.setData(count, 3, memoryBasic);
 
-        //Opeartions
-        //Time
+        // Opeartions
+        // Time
+        
         start = clock();
         D.strassenMatrix(&A, &B);
         stop = clock();
         timeTaken = stop - start;        
 
         //Space
-
+        int memoryStarssen = A.getMemory() + B.getMemory() + D.getMemory();
         //Insert the simulation data into table
         dataTable.setData(count, 2, timeTaken/CLOCKS_PER_SEC);
-        dataTable.setData(count, 4, 0);
+        dataTable.setData(count, 4, memoryStarssen);
         
         //increase table size and count
         if(matrixSize < 100){

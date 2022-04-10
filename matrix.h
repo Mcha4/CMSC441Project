@@ -7,8 +7,6 @@
 #include <unistd.h>
 using namespace std;
 
-static unsigned int minStackLocation;
-
 class matrix{
     public:
         matrix();
@@ -17,10 +15,10 @@ class matrix{
         void generateRandomMatrix();
         int getRows();
         int getCols();
-        int getMemory();
         double** getData();
         void setData(int row, int col, double input);
         void printMatrix();
+        int getMemory();
         
         matrix* addMatrix(matrix* A, matrix* B);
         matrix* subMatrix(matrix* A, matrix* B);
