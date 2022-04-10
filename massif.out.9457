@@ -1,0 +1,880 @@
+desc: (none)
+cmd: ./main
+time_unit: i
+#-----------
+snapshot=0
+#-----------
+time=0
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=1
+#-----------
+time=2199817
+mem_heap_B=72704
+mem_heap_extra_B=8
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=2
+#-----------
+time=2308927
+mem_heap_B=72712
+mem_heap_extra_B=24
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=3
+#-----------
+time=2308985
+mem_heap_B=72752
+mem_heap_extra_B=40
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=4
+#-----------
+time=2309074
+mem_heap_B=72832
+mem_heap_extra_B=48
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=5
+#-----------
+time=2309132
+mem_heap_B=72912
+mem_heap_extra_B=56
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=6
+#-----------
+time=2309188
+mem_heap_B=72992
+mem_heap_extra_B=64
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=7
+#-----------
+time=2309244
+mem_heap_B=73072
+mem_heap_extra_B=72
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=8
+#-----------
+time=2309300
+mem_heap_B=73152
+mem_heap_extra_B=80
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=9
+#-----------
+time=2309356
+mem_heap_B=73232
+mem_heap_extra_B=88
+mem_stacks_B=0
+heap_tree=detailed
+n2: 73232 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x48F0A99: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+  n1: 72704 0x4011B89: call_init.part.0 (dl-init.c:72)
+   n1: 72704 0x4011C90: call_init (dl-init.c:30)
+    n1: 72704 0x4011C90: _dl_init (dl-init.c:119)
+     n0: 72704 0x4001139: ??? (in /usr/lib/x86_64-linux-gnu/ld-2.31.so)
+ n0: 528 in 2 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=10
+#-----------
+time=2309412
+mem_heap_B=73312
+mem_heap_extra_B=96
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=11
+#-----------
+time=2309468
+mem_heap_B=73392
+mem_heap_extra_B=104
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=12
+#-----------
+time=2309524
+mem_heap_B=73472
+mem_heap_extra_B=112
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=13
+#-----------
+time=2309580
+mem_heap_B=73552
+mem_heap_extra_B=120
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=14
+#-----------
+time=2309636
+mem_heap_B=73632
+mem_heap_extra_B=128
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=15
+#-----------
+time=2309720
+mem_heap_B=73712
+mem_heap_extra_B=136
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=16
+#-----------
+time=2309778
+mem_heap_B=73792
+mem_heap_extra_B=144
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=17
+#-----------
+time=2309834
+mem_heap_B=73872
+mem_heap_extra_B=152
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=18
+#-----------
+time=2309890
+mem_heap_B=73952
+mem_heap_extra_B=160
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=19
+#-----------
+time=2309946
+mem_heap_B=74032
+mem_heap_extra_B=168
+mem_stacks_B=0
+heap_tree=detailed
+n3: 74032 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x48F0A99: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+  n1: 72704 0x4011B89: call_init.part.0 (dl-init.c:72)
+   n1: 72704 0x4011C90: call_init (dl-init.c:30)
+    n1: 72704 0x4011C90: _dl_init (dl-init.c:119)
+     n0: 72704 0x4001139: ??? (in /usr/lib/x86_64-linux-gnu/ld-2.31.so)
+ n2: 1160 0x109445: matrix::matrix(int, int) (in /home/mcha/CMSC441Project/main)
+  n0: 800 0x10AD6B: main (in /home/mcha/CMSC441Project/main)
+  n0: 360 in 2 places, all below massif's threshold (1.00%)
+ n0: 168 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=20
+#-----------
+time=2310002
+mem_heap_B=74112
+mem_heap_extra_B=176
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=21
+#-----------
+time=2310058
+mem_heap_B=74192
+mem_heap_extra_B=184
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=22
+#-----------
+time=2310114
+mem_heap_B=74272
+mem_heap_extra_B=192
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=23
+#-----------
+time=2310170
+mem_heap_B=74352
+mem_heap_extra_B=200
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=24
+#-----------
+time=2310226
+mem_heap_B=74432
+mem_heap_extra_B=208
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=25
+#-----------
+time=2310282
+mem_heap_B=74512
+mem_heap_extra_B=216
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=26
+#-----------
+time=2310366
+mem_heap_B=74592
+mem_heap_extra_B=224
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=27
+#-----------
+time=2310424
+mem_heap_B=74672
+mem_heap_extra_B=232
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=28
+#-----------
+time=2310480
+mem_heap_B=74752
+mem_heap_extra_B=240
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=29
+#-----------
+time=2310536
+mem_heap_B=74832
+mem_heap_extra_B=248
+mem_stacks_B=0
+heap_tree=detailed
+n3: 74832 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x48F0A99: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+  n1: 72704 0x4011B89: call_init.part.0 (dl-init.c:72)
+   n1: 72704 0x4011C90: call_init (dl-init.c:30)
+    n1: 72704 0x4011C90: _dl_init (dl-init.c:119)
+     n0: 72704 0x4001139: ??? (in /usr/lib/x86_64-linux-gnu/ld-2.31.so)
+ n3: 1880 0x109445: matrix::matrix(int, int) (in /home/mcha/CMSC441Project/main)
+  n0: 800 0x10AD6B: main (in /home/mcha/CMSC441Project/main)
+  n0: 800 0x10AD85: main (in /home/mcha/CMSC441Project/main)
+  n0: 280 in 2 places, all below massif's threshold (1.00%)
+ n0: 248 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=30
+#-----------
+time=2310592
+mem_heap_B=74912
+mem_heap_extra_B=256
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=31
+#-----------
+time=2310648
+mem_heap_B=74992
+mem_heap_extra_B=264
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=32
+#-----------
+time=2310704
+mem_heap_B=75072
+mem_heap_extra_B=272
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=33
+#-----------
+time=2310760
+mem_heap_B=75152
+mem_heap_extra_B=280
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=34
+#-----------
+time=2310816
+mem_heap_B=75232
+mem_heap_extra_B=288
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=35
+#-----------
+time=2310872
+mem_heap_B=75312
+mem_heap_extra_B=296
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=36
+#-----------
+time=2310928
+mem_heap_B=75392
+mem_heap_extra_B=304
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=37
+#-----------
+time=2311012
+mem_heap_B=75472
+mem_heap_extra_B=312
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=38
+#-----------
+time=2311070
+mem_heap_B=75552
+mem_heap_extra_B=320
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=39
+#-----------
+time=2311126
+mem_heap_B=75632
+mem_heap_extra_B=328
+mem_stacks_B=0
+heap_tree=detailed
+n3: 75632 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x48F0A99: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+  n1: 72704 0x4011B89: call_init.part.0 (dl-init.c:72)
+   n1: 72704 0x4011C90: call_init (dl-init.c:30)
+    n1: 72704 0x4011C90: _dl_init (dl-init.c:119)
+     n0: 72704 0x4001139: ??? (in /usr/lib/x86_64-linux-gnu/ld-2.31.so)
+ n4: 2600 0x109445: matrix::matrix(int, int) (in /home/mcha/CMSC441Project/main)
+  n0: 800 0x10AD6B: main (in /home/mcha/CMSC441Project/main)
+  n0: 800 0x10AD85: main (in /home/mcha/CMSC441Project/main)
+  n0: 800 0x10AD9F: main (in /home/mcha/CMSC441Project/main)
+  n0: 200 in 2 places, all below massif's threshold (1.00%)
+ n0: 328 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=40
+#-----------
+time=2311182
+mem_heap_B=75712
+mem_heap_extra_B=336
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=41
+#-----------
+time=2311238
+mem_heap_B=75792
+mem_heap_extra_B=344
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=42
+#-----------
+time=2311294
+mem_heap_B=75872
+mem_heap_extra_B=352
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=43
+#-----------
+time=2311350
+mem_heap_B=75952
+mem_heap_extra_B=360
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=44
+#-----------
+time=2311406
+mem_heap_B=76032
+mem_heap_extra_B=368
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=45
+#-----------
+time=2311462
+mem_heap_B=76112
+mem_heap_extra_B=376
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=46
+#-----------
+time=2311518
+mem_heap_B=76192
+mem_heap_extra_B=384
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=47
+#-----------
+time=2311574
+mem_heap_B=76272
+mem_heap_extra_B=392
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=48
+#-----------
+time=2446142
+mem_heap_B=76272
+mem_heap_extra_B=392
+mem_stacks_B=0
+heap_tree=peak
+n3: 76272 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x48F0A99: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+  n1: 72704 0x4011B89: call_init.part.0 (dl-init.c:72)
+   n1: 72704 0x4011C90: call_init (dl-init.c:30)
+    n1: 72704 0x4011C90: _dl_init (dl-init.c:119)
+     n0: 72704 0x4001139: ??? (in /usr/lib/x86_64-linux-gnu/ld-2.31.so)
+ n5: 3240 0x109445: matrix::matrix(int, int) (in /home/mcha/CMSC441Project/main)
+  n0: 800 0x10AD6B: main (in /home/mcha/CMSC441Project/main)
+  n0: 800 0x10AD85: main (in /home/mcha/CMSC441Project/main)
+  n0: 800 0x10AD9F: main (in /home/mcha/CMSC441Project/main)
+  n0: 800 0x10ADB9: main (in /home/mcha/CMSC441Project/main)
+  n0: 40 in 1 place, below massif's threshold (1.00%)
+ n0: 328 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=49
+#-----------
+time=2446142
+mem_heap_B=76192
+mem_heap_extra_B=384
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=50
+#-----------
+time=2446194
+mem_heap_B=76112
+mem_heap_extra_B=376
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=51
+#-----------
+time=2446246
+mem_heap_B=76032
+mem_heap_extra_B=368
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=52
+#-----------
+time=2446298
+mem_heap_B=75952
+mem_heap_extra_B=360
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=53
+#-----------
+time=2446350
+mem_heap_B=75872
+mem_heap_extra_B=352
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=54
+#-----------
+time=2446402
+mem_heap_B=75792
+mem_heap_extra_B=344
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=55
+#-----------
+time=2446454
+mem_heap_B=75712
+mem_heap_extra_B=336
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=56
+#-----------
+time=2446506
+mem_heap_B=75632
+mem_heap_extra_B=328
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=57
+#-----------
+time=2446558
+mem_heap_B=75552
+mem_heap_extra_B=320
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=58
+#-----------
+time=2446610
+mem_heap_B=75472
+mem_heap_extra_B=312
+mem_stacks_B=0
+heap_tree=detailed
+n3: 75472 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x48F0A99: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+  n1: 72704 0x4011B89: call_init.part.0 (dl-init.c:72)
+   n1: 72704 0x4011C90: call_init (dl-init.c:30)
+    n1: 72704 0x4011C90: _dl_init (dl-init.c:119)
+     n0: 72704 0x4001139: ??? (in /usr/lib/x86_64-linux-gnu/ld-2.31.so)
+ n4: 2440 0x109445: matrix::matrix(int, int) (in /home/mcha/CMSC441Project/main)
+  n0: 800 0x10AD6B: main (in /home/mcha/CMSC441Project/main)
+  n0: 800 0x10AD85: main (in /home/mcha/CMSC441Project/main)
+  n0: 800 0x10AD9F: main (in /home/mcha/CMSC441Project/main)
+  n0: 40 in 2 places, all below massif's threshold (1.00%)
+ n0: 328 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=59
+#-----------
+time=2446652
+mem_heap_B=75392
+mem_heap_extra_B=304
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=60
+#-----------
+time=2446718
+mem_heap_B=75312
+mem_heap_extra_B=296
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=61
+#-----------
+time=2446770
+mem_heap_B=75232
+mem_heap_extra_B=288
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=62
+#-----------
+time=2446822
+mem_heap_B=75152
+mem_heap_extra_B=280
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=63
+#-----------
+time=2446874
+mem_heap_B=75072
+mem_heap_extra_B=272
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=64
+#-----------
+time=2446926
+mem_heap_B=74992
+mem_heap_extra_B=264
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=65
+#-----------
+time=2446978
+mem_heap_B=74912
+mem_heap_extra_B=256
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=66
+#-----------
+time=2447030
+mem_heap_B=74832
+mem_heap_extra_B=248
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=67
+#-----------
+time=2447082
+mem_heap_B=74752
+mem_heap_extra_B=240
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=68
+#-----------
+time=2447134
+mem_heap_B=74672
+mem_heap_extra_B=232
+mem_stacks_B=0
+heap_tree=detailed
+n3: 74672 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x48F0A99: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+  n1: 72704 0x4011B89: call_init.part.0 (dl-init.c:72)
+   n1: 72704 0x4011C90: call_init (dl-init.c:30)
+    n1: 72704 0x4011C90: _dl_init (dl-init.c:119)
+     n0: 72704 0x4001139: ??? (in /usr/lib/x86_64-linux-gnu/ld-2.31.so)
+ n3: 1720 0x109445: matrix::matrix(int, int) (in /home/mcha/CMSC441Project/main)
+  n0: 800 0x10AD6B: main (in /home/mcha/CMSC441Project/main)
+  n0: 800 0x10AD85: main (in /home/mcha/CMSC441Project/main)
+  n0: 120 in 3 places, all below massif's threshold (1.00%)
+ n0: 248 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=69
+#-----------
+time=2447186
+mem_heap_B=74592
+mem_heap_extra_B=224
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=70
+#-----------
+time=2447228
+mem_heap_B=74512
+mem_heap_extra_B=216
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=71
+#-----------
+time=2447294
+mem_heap_B=74432
+mem_heap_extra_B=208
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=72
+#-----------
+time=2447346
+mem_heap_B=74352
+mem_heap_extra_B=200
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=73
+#-----------
+time=2447398
+mem_heap_B=74272
+mem_heap_extra_B=192
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=74
+#-----------
+time=2447450
+mem_heap_B=74192
+mem_heap_extra_B=184
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=75
+#-----------
+time=2447502
+mem_heap_B=74112
+mem_heap_extra_B=176
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=76
+#-----------
+time=2447554
+mem_heap_B=74032
+mem_heap_extra_B=168
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=77
+#-----------
+time=2447606
+mem_heap_B=73952
+mem_heap_extra_B=160
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=78
+#-----------
+time=2447658
+mem_heap_B=73872
+mem_heap_extra_B=152
+mem_stacks_B=0
+heap_tree=detailed
+n3: 73872 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x48F0A99: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+  n1: 72704 0x4011B89: call_init.part.0 (dl-init.c:72)
+   n1: 72704 0x4011C90: call_init (dl-init.c:30)
+    n1: 72704 0x4011C90: _dl_init (dl-init.c:119)
+     n0: 72704 0x4001139: ??? (in /usr/lib/x86_64-linux-gnu/ld-2.31.so)
+ n2: 1000 0x109445: matrix::matrix(int, int) (in /home/mcha/CMSC441Project/main)
+  n0: 800 0x10AD6B: main (in /home/mcha/CMSC441Project/main)
+  n0: 200 in 4 places, all below massif's threshold (1.00%)
+ n0: 168 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=79
+#-----------
+time=2447710
+mem_heap_B=73792
+mem_heap_extra_B=144
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=80
+#-----------
+time=2447762
+mem_heap_B=73712
+mem_heap_extra_B=136
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=81
+#-----------
+time=2447804
+mem_heap_B=73632
+mem_heap_extra_B=128
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=82
+#-----------
+time=2447870
+mem_heap_B=73552
+mem_heap_extra_B=120
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=83
+#-----------
+time=2447922
+mem_heap_B=73472
+mem_heap_extra_B=112
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=84
+#-----------
+time=2447974
+mem_heap_B=73392
+mem_heap_extra_B=104
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=85
+#-----------
+time=2448026
+mem_heap_B=73312
+mem_heap_extra_B=96
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=86
+#-----------
+time=2448078
+mem_heap_B=73232
+mem_heap_extra_B=88
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=87
+#-----------
+time=2448130
+mem_heap_B=73152
+mem_heap_extra_B=80
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=88
+#-----------
+time=2448182
+mem_heap_B=73072
+mem_heap_extra_B=72
+mem_stacks_B=0
+heap_tree=detailed
+n2: 73072 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x48F0A99: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+  n1: 72704 0x4011B89: call_init.part.0 (dl-init.c:72)
+   n1: 72704 0x4011C90: call_init (dl-init.c:30)
+    n1: 72704 0x4011C90: _dl_init (dl-init.c:119)
+     n0: 72704 0x4001139: ??? (in /usr/lib/x86_64-linux-gnu/ld-2.31.so)
+ n0: 368 in 2 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=89
+#-----------
+time=2448234
+mem_heap_B=72992
+mem_heap_extra_B=64
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=90
+#-----------
+time=2448286
+mem_heap_B=72912
+mem_heap_extra_B=56
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=91
+#-----------
+time=2448338
+mem_heap_B=72832
+mem_heap_extra_B=48
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=92
+#-----------
+time=2448380
+mem_heap_B=72752
+mem_heap_extra_B=40
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=93
+#-----------
+time=2452348
+mem_heap_B=73776
+mem_heap_extra_B=48
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=94
+#-----------
+time=2483229
+mem_heap_B=73736
+mem_heap_extra_B=32
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=95
+#-----------
+time=2483271
+mem_heap_B=73728
+mem_heap_extra_B=16
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=96
+#-----------
+time=2490914
+mem_heap_B=1024
+mem_heap_extra_B=8
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=97
+#-----------
+time=2492589
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty

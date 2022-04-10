@@ -7,6 +7,8 @@
 #include <unistd.h>
 using namespace std;
 
+static unsigned int minStackLocation;
+
 class matrix{
     public:
         matrix();
@@ -25,7 +27,6 @@ class matrix{
         
         matrix* basicMatrix(matrix* A, matrix* B);
         matrix* strassenMatrix(matrix* A, matrix* B);
-        
     private:
         int rows;
         int cols;

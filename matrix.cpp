@@ -85,12 +85,15 @@ matrix* matrix::basicMatrix(matrix* A, matrix* B){
             }
         }
     }
+    void * currPtrLocation = (void*)(&data[rows-1][cols-1]);
+
     return this;
 }
 
 matrix* matrix::strassenMatrix(matrix* A, matrix* B){
-    if(rows > 256){
+    if(rows > 64){
         int matrixSize = A->getRows()/2;
+        
         matrix A11(matrixSize, matrixSize), A12(matrixSize, matrixSize);
         matrix A21(matrixSize, matrixSize), A22(matrixSize, matrixSize);
 
@@ -155,13 +158,7 @@ matrix* matrix::strassenMatrix(matrix* A, matrix* B){
             }
         }
     } else {
-        for(int i = 0; i < rows; i++){
-            for(int j = 0; j < cols; j++){
-                for(int k = 0; k < cols; k++){
-                    data[i][j] = data[i][j] + A->data[i][k] * B->data[k][j];
-                }
-            }
-        }
+        basicMatrix(A, B);
     }
     return this;
 }
