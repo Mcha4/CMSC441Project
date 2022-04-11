@@ -90,7 +90,7 @@ matrix* matrix::basicMatrix(matrix* A, matrix* B){
 }
 
 matrix* matrix::strassenMatrix(matrix* A, matrix* B){
-    if(rows > 64){
+    if(rows > 512){
         int matrixSize = A->getRows()/2;
         
         matrix A11(matrixSize, matrixSize), A12(matrixSize, matrixSize);
