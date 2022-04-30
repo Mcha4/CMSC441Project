@@ -4,7 +4,7 @@ using namespace std;
 
 int main(){
     //To check data change the iteration and matrixSize
-    int iteration = 20;
+    int iteration = 49;
     clock_t start, stop;
     double timeTaken = 0.0;    
     matrix dataTable(iteration, 5);
@@ -23,37 +23,37 @@ int main(){
         //Operation
         //When trying print the C after basicMatrix it occur errors. but data is printed
         //Time
-        start = clock();
-        C.basicMatrix(&A, &B);
-        stop = clock();
-        timeTaken = stop - start;
+        // start = clock();
+        // C.basicMatrix(&A, &B);
+        // stop = clock();
+        // timeTaken = stop - start;
         //Space
-        int memoryBasic = A.getMemory() + B.getMemory() + C.getMemory();
+        double memoryBasic = A.getMemory() + B.getMemory() + C.getMemory();
         //Insert the simulation data into table
-        dataTable.setData(count, 1, timeTaken/CLOCKS_PER_SEC);
-        dataTable.setData(count, 3, memoryBasic);
+        dataTable.setData(count, 1, 0);
+        dataTable.setData(count, 3, 0);
 
         // Opeartions
         // Time
         
         start = clock();
-        D.strassenMatrix(&A, &B);
+        D.strassenMatrixk(&A, &B, 16);
         stop = clock();
         timeTaken = stop - start;        
 
         //Space
-        int memoryStarssen = A.getMemory() + B.getMemory() + D.getMemory();
+        double memoryStarssen = A.getMemory() + B.getMemory() + D.getMemory();
         //Insert the simulation data into table
-        dataTable.setData(count, 2, timeTaken/CLOCKS_PER_SEC);
-        dataTable.setData(count, 4, memoryStarssen);
-        
+        dataTable.setData(count, 2, timeTaken/CLOCKS_PER_SEC); //
+        dataTable.setData(count, 4, memoryStarssen); //
         //increase table size and count
+        matrixSize = matrixSize * 2;
         if(matrixSize < 100){
             matrixSize += 10;
-        } else if (matrixSize < 1000) {
+        } else if(matrixSize < 3000) {
             matrixSize += 100;
-        } else {
-            matrixSize += 1000;
+        } else if(matrixSize < 8000){
+            matrixSize += 500;
         }
         count++;
     }

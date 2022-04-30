@@ -25,6 +25,7 @@ class matrix{
         
         matrix* basicMatrix(matrix* A, matrix* B);
         matrix* strassenMatrix(matrix* A, matrix* B);
+        matrix* strassenMatrixk(matrix* A, matrix* B, int k);
     private:
         int rows;
         int cols;
