@@ -4,7 +4,7 @@ using namespace std;
 
 int main(){
     //To check data change the iteration and matrixSize
-    int iteration = 49;
+    int iteration = 30;
     clock_t start, stop;
     double timeTaken = 0.0;    
     matrix dataTable(iteration, 5);
@@ -30,24 +30,23 @@ int main(){
         //Space
         double memoryBasic = A.getMemory() + B.getMemory() + C.getMemory();
         //Insert the simulation data into table
-        dataTable.setData(count, 1, 0);
-        dataTable.setData(count, 3, 0);
+        dataTable.setData(count, 1, 0); //timeTaken/CLOCKS_PER_SEC
+        dataTable.setData(count, 3, 0); //memoryBasic
 
         // Opeartions
         // Time
         
         start = clock();
-        D.strassenMatrixk(&A, &B, 16);
+        D.strassenMatrixk(&A, &B, 64);
         stop = clock();
         timeTaken = stop - start;        
 
         //Space
         double memoryStarssen = A.getMemory() + B.getMemory() + D.getMemory();
         //Insert the simulation data into table
-        dataTable.setData(count, 2, timeTaken/CLOCKS_PER_SEC); //
-        dataTable.setData(count, 4, memoryStarssen); //
-        //increase table size and count
-        matrixSize = matrixSize * 2;
+        dataTable.setData(count, 2, timeTaken/CLOCKS_PER_SEC); //timeTaken/CLOCKS_PER_SEC
+        dataTable.setData(count, 4, memoryStarssen); //memoryStarssen
+        //increase table size and count        
         if(matrixSize < 100){
             matrixSize += 10;
         } else if(matrixSize < 3000) {

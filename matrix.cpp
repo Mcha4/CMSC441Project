@@ -154,7 +154,7 @@ matrix* matrix::strassenMatrix(matrix* A, matrix* B){
 matrix* matrix::strassenMatrixk(matrix* A, matrix* B, int k ){
     if(A->getRows() > k){
         int matrixSize = A->getRows()/2;
-        
+
         matrix A11(matrixSize, matrixSize), A12(matrixSize, matrixSize);
         matrix A21(matrixSize, matrixSize), A22(matrixSize, matrixSize);
 
