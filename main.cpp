@@ -4,12 +4,12 @@ using namespace std;
 
 int main(){
     //To check data change the iteration and matrixSize
-    int iteration = 15;
+    int iteration = 11;
     clock_t start, stop;
     double timeTaken = 0.0;    
     matrix dataTable(iteration, 19);
     int count = 0;
-    int matrixSize = 10;
+    int matrixSize = 2;
 
     while(count < iteration){
         matrix A(matrixSize, matrixSize);//Default 
@@ -154,14 +154,15 @@ int main(){
         dataTable.setData(count, 9, timeTaken/CLOCKS_PER_SEC); //timeTaken/CLOCKS_PER_SEC
         dataTable.setData(count, 18, memoryStarssen); //memoryStarssen
 
-        //increase table size and count        
-        if(matrixSize < 100){
-            matrixSize += 10;
-        } else if(matrixSize < 2000) {
-            matrixSize += 100;
-        } else if(matrixSize < 5000){
-            matrixSize += 500;
-        }
+        matrixSize = matrixSize * 2;
+        // //increase table size and count        
+        // if(matrixSize < 100){
+        //     matrixSize += 10;
+        // } else if(matrixSize < 2000) {
+        //     matrixSize += 100;
+        // } else if(matrixSize < 5000){
+        //     matrixSize += 500;
+        // }
         count++;
     }
     dataTable.printMatrix();

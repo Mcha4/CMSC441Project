@@ -146,6 +146,8 @@ matrix* matrix::strassenMatrix(matrix* A, matrix* B){
                 data[matrixSize+i][matrixSize+j] = C22.data[i][j];
             }
         }
+        
+    } else {
         basicMatrix(A, B);
     }
     return this;
@@ -229,7 +231,7 @@ void matrix::printMatrix(){
         }
     } else {
         cout << "| " << "Row&Col";
-        cout << "| " << "BasicTime(s)"<< "| " << "StarssenTime(s)" << "| " << "StarssenTime(s) 4" << "| " << "StarssenTime(s) 8"  << "| " << "StarssenTime(s)"  << "| " << "StarssenTime(s) 16" << "| " << "StarssenTime(s) 32" << "| " << "StarssenTime(s) 64" << "| " << "StarssenTime(s) 128" << "| " << "StarssenTime(s) 256";
+        cout << "| " << "BasicTime(s)"<< "| " << "StarssenTime(s)" << "| " << "StarssenTime(s) 4" << "| " << "StarssenTime(s) 8"  << "| " << "StarssenTime(s) 16" << "| " << "StarssenTime(s) 32" << "| " << "StarssenTime(s) 64" << "| " << "StarssenTime(s) 128" << "| " << "StarssenTime(s) 256";
         cout << "| " << "BasicMemory(Bytes)" << "| " << "StarssenTime(s)" << "| "  << "StarssenTime(Bytes) 4" << "| " << "StarssenTime(Bytes) 8" << "StarssenMemory(Bytes) 16" << "| " << "StarssenMemory(Bytes) 32" << "| " << "StarssenMemory(Bytes) 64" << "| " << "StarssenMemory(Bytes) 128" << "| " << "StarssenMemory(Bytes) 256" << "| " << endl;
         cout << "| -: | -: | -: | -: | -: | -: | -: | -: | -: | -: | -: |  -: |  -: |  -: |  -: | -: |  -: |  -: |  -: |" << endl;
         for(int i = 0; i < rows; i++){
