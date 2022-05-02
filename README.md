@@ -311,7 +311,7 @@ Table #1
 | 900| 3.29966| 23.2114| 1.88472| 1.7758| 1.73123| 1.82644| 2.12287| 9.72e+06| 7.47946e+08| 2.17585e+08| 1.25348e+08| 7.2641e+07| 4.25229e+07| 2.53125e+07| 
 | 1000| 4.96742| 28.5063| 2.29685| 2.34956| 2.32603| 2.57049| 2.85358| 1.2e+07| 7.90457e+08| 2.60095e+08| 1.54211e+08| 8.96053e+07| 5.26875e+07| 3.125e+07|
 
-| Row&Col| BasicTime(s)| StarssenTime(s)| StarssenTime(s) 4| StarssenTime(s) 8| StarssenTime(s) 16| StarssenTime(s) 32| StarssenTime(s) 64| StarssenTime(s) 128| StarssenTime(s) 256| BasicMemory(Bytes)| StarssenTime(s)| StarssenTime(Bytes) 4| StarssenTime(Bytes) 8StarssenMemory(Bytes) 16| StarssenMemory(Bytes) 32| StarssenMemory(Bytes) 64| StarssenMemory(Bytes) 128| StarssenMemory(Bytes) 256| 
+| Row&Col| BasicTime(s)| StarssenTime(s)| StarssenTime(s) 4| StarssenTime(s) 8| StarssenTime(s) 16| StarssenTime(s) 32| StarssenTime(s) 64| StarssenTime(s) 128| StarssenTime(s) 256| BasicMemory(Bytes)| StarssenTime(s)| StarssenTime(Bytes) 4| StarssenTime(Bytes) 8 | StarssenMemory(Bytes) 16| StarssenMemory(Bytes) 32| StarssenMemory(Bytes) 64| StarssenMemory(Bytes) 128| StarssenMemory(Bytes) 256| 
 | -: | -: | -: | -: | -: | -: | -: | -: | -: | -: | -: |  -: |  -: |  -: |  -: | -: |  -: |  -: |  -: |
 | 10| 2e-05| 0.000129| 5.9e-05| 2.7e-05| 1.3e-05| 1.2e-05| 1.2e-05| 1.3e-05| 1.3e-05| 1200| 2684| 2684| 1900| 1200| 1200| 1200| 1200| 1200| 
 | 20| 0.000109| 0.000682| 0.000412| 0.000203| 0.000143| 0.000107| 0.000106| 0.000106| 0.000106| 4800| 17988| 17988| 12500| 7600| 4800| 4800| 4800| 4800| 
@@ -331,7 +331,7 @@ Table #1
 
 
 
-| Row&Col| BasicTime(s)| StarssenTime(s)| StarssenTime(s) 4| StarssenTime(s) 8| StarssenTime(s) 16| StarssenTime(s) 32| StarssenTime(s) 64| StarssenTime(s) 128| StarssenTime(s) 256| BasicMemory(Bytes)| StarssenTime(s)| StarssenTime(Bytes) 4| StarssenTime(Bytes) 8StarssenMemory(Bytes) 16| StarssenMemory(Bytes) 32| StarssenMemory(Bytes) 64| StarssenMemory(Bytes) 128| StarssenMemory(Bytes) 256| 
+| Row&Col| BasicTime(s)| StarssenTime(s)| StarssenTime(s) 4| StarssenTime(s) 8| StarssenTime(s) 16| StarssenTime(s) 32| StarssenTime(s) 64| StarssenTime(s) 128| StarssenTime(s) 256| BasicMemory(Bytes)| StarssenTime(s)| StarssenTime(Bytes) 4| StarssenTime(Bytes) | 8StarssenMemory(Bytes) 16| StarssenMemory(Bytes) 32| StarssenMemory(Bytes) 64| StarssenMemory(Bytes) 128| StarssenMemory(Bytes) 256| 
 | -: | -: | -: | -: | -: | -: | -: | -: | -: | -: | -: |  -: |  -: |  -: |  -: | -: |  -: |  -: |  -: |
 | 2| 2e-06| 1e-06| 1e-06| 1e-06| 1e-06| 1e-06| 0| 1e-06| 1e-06| 48| 48| 48| 48| 48| 48| 48| 48| 48| 
 | 4| 2e-06| 1.4e-05| 2e-06| 1e-06| 1e-06| 1e-06| 2e-06| 2e-06| 1e-06| 192| 304| 192| 192| 192| 192| 192| 192| 192| 
