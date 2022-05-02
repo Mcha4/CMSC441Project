@@ -228,9 +228,10 @@ void matrix::printMatrix(){
             cout << endl;
         }
     } else {
-        cout << "| " << "Row&Col" << "| " << "BasicTime(s)"<< "| " << "StarssenTime(s)" << "| " << "StarssenTime(s) 16" << "| " << "StarssenTime(s) 32" << "| " << "StarssenTime(s) 64" << "| " << "StarssenTime(s) 128" << "| " << "StarssenTime(s) 256";
-        cout << "| " << "BasicMemory(Bytes)" << "| " << "StarssenTime(s)" << "| " << "StarssenMemory(Bytes) 16" << "| " << "StarssenMemory(Bytes) 32" << "| " << "StarssenMemory(Bytes) 64" << "| " << "StarssenMemory(Bytes) 128" << "| " << "StarssenMemory(Bytes) 256" << "| " << endl;
-        cout << "| -: | -: | -: | -: | -: | -: | -: | -: | -: | -: | -: |" << endl;
+        cout << "| " << "Row&Col";
+        cout << "| " << "BasicTime(s)"<< "| " << "StarssenTime(s)" << "| " << "StarssenTime(s) 4" << "| " << "StarssenTime(s) 8"  << "| " << "StarssenTime(s)"  << "| " << "StarssenTime(s) 16" << "| " << "StarssenTime(s) 32" << "| " << "StarssenTime(s) 64" << "| " << "StarssenTime(s) 128" << "| " << "StarssenTime(s) 256";
+        cout << "| " << "BasicMemory(Bytes)" << "| " << "StarssenTime(s)" << "| "  << "StarssenTime(Bytes) 4" << "| " << "StarssenTime(Bytes) 8" << "StarssenMemory(Bytes) 16" << "| " << "StarssenMemory(Bytes) 32" << "| " << "StarssenMemory(Bytes) 64" << "| " << "StarssenMemory(Bytes) 128" << "| " << "StarssenMemory(Bytes) 256" << "| " << endl;
+        cout << "| -: | -: | -: | -: | -: | -: | -: | -: | -: | -: | -: |  -: |  -: |  -: |  -: | -: |  -: |  -: |  -: |" << endl;
         for(int i = 0; i < rows; i++){
             cout << "| " << data[i][0];
             cout << "| " << data[i][1];
@@ -246,7 +247,11 @@ void matrix::printMatrix(){
             cout << "| " << data[i][11];
             cout << "| " << data[i][12];
             cout << "| " << data[i][13];
-            cout << "| " << data[i][14] << "| " << endl;
+            cout << "| " << data[i][14];
+            cout << "| " << data[i][15];
+            cout << "| " << data[i][16];
+            cout << "| " << data[i][17];
+            cout << "| " << data[i][18] << "| " << endl;
         }
 
     }
