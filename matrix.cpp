@@ -228,8 +228,8 @@ void matrix::printMatrix(){
             cout << endl;
         }
     } else {
-        cout << "| " << "Row&Col" << "| " << "BasicTime(s)" << "| " << "StarssenTime(s) 16" << "| " << "StarssenTime(s) 32" << "| " << "StarssenTime(s) 64" << "| " << "StarssenTime(s) 128" << "| " << "StarssenTime(s) 256";
-        cout << "| " << "BasicMemory(Bytes)" << "| " << "StarssenMemory(Bytes) 16" << "| " << "StarssenMemory(Bytes) 32" << "| " << "StarssenMemory(Bytes) 64" << "| " << "StarssenMemory(Bytes) 128" << "| " << "StarssenMemory(Bytes) 256" << "| " << endl;
+        cout << "| " << "Row&Col" << "| " << "BasicTime(s)"<< "| " << "StarssenTime(s)" << "| " << "StarssenTime(s) 16" << "| " << "StarssenTime(s) 32" << "| " << "StarssenTime(s) 64" << "| " << "StarssenTime(s) 128" << "| " << "StarssenTime(s) 256";
+        cout << "| " << "BasicMemory(Bytes)" << "| " << "StarssenTime(s)" << "| " << "StarssenMemory(Bytes) 16" << "| " << "StarssenMemory(Bytes) 32" << "| " << "StarssenMemory(Bytes) 64" << "| " << "StarssenMemory(Bytes) 128" << "| " << "StarssenMemory(Bytes) 256" << "| " << endl;
         cout << "| -: | -: | -: | -: | -: | -: | -: | -: | -: | -: | -: |" << endl;
         for(int i = 0; i < rows; i++){
             cout << "| " << data[i][0];
@@ -242,7 +242,11 @@ void matrix::printMatrix(){
             cout << "| " << data[i][7];
             cout << "| " << data[i][8];
             cout << "| " << data[i][9];
-            cout << "| " << data[i][10] << "| " << endl;
+            cout << "| " << data[i][10];
+            cout << "| " << data[i][11];
+            cout << "| " << data[i][12];
+            cout << "| " << data[i][13];
+            cout << "| " << data[i][14] << "| " << endl;
         }
 
     }
