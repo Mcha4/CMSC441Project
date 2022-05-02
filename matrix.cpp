@@ -228,10 +228,9 @@ void matrix::printMatrix(){
             cout << endl;
         }
     } else {
-        cout << "| " << "Row&Col" << "| " << "BasicTime(s)" << "| " << "StarssenTime(s) 32" << "| " << "StarssenTime(s) 64" << "| " << "StarssenTime(s) 128" << "| " << "StarssenTime(s) 256";
-        cout << "| " << "BasicMemory(Bytes)" << "| " << "StarssenMemory(Bytes) 32" << "| " << "StarssenMemory(Bytes) 64" << "| " << "StarssenMemory(Bytes) 128" << "| " << "StarssenMemory(Bytes) 256" << "| " << endl;
+        cout << "| " << "Row&Col" << "| " << "BasicTime(s)" << "| " << "StarssenTime(s) 16" << "| " << "StarssenTime(s) 32" << "| " << "StarssenTime(s) 64" << "| " << "StarssenTime(s) 128" << "| " << "StarssenTime(s) 256";
+        cout << "| " << "BasicMemory(Bytes)" << "| " << "StarssenMemory(Bytes) 16" << "| " << "StarssenMemory(Bytes) 32" << "| " << "StarssenMemory(Bytes) 64" << "| " << "StarssenMemory(Bytes) 128" << "| " << "StarssenMemory(Bytes) 256" << "| " << endl;
         cout << "| -: | -: | -: | -: | -: | -: | -: | -: | -: | -: | -: |" << endl;
-        //cout << setw(6) << "Size" << setw(16) << "BasicT" << setw(16) << "StarssenT" << setw(16) << "BasicM" << setw(16) << "StarssenM" << endl;
         for(int i = 0; i < rows; i++){
             cout << "| " << data[i][0];
             cout << "| " << data[i][1];
