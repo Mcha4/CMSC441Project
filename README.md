@@ -290,7 +290,7 @@ Table #1
 
 
 | Row&Col| BasicTime(s)| StarssenTime(s)| StarssenTime(s) 16| StarssenTime(s) 32| StarssenTime(s) 64| StarssenTime(s) 128| StarssenTime(s) 256| BasicMemory(Bytes)| StarssenTime(s)| StarssenMemory(Bytes) 16| StarssenMemory(Bytes) 32| StarssenMemory(Bytes) 64| StarssenMemory(Bytes) 128| StarssenMemory(Bytes) 256| 
-| -: | -: | -: | -: | -: | -: | -: | -: | -: | -: | -: | -: | -: |
+| -: | -: | -: | -: | -: | -: | -: | -: | -: | -: | -: | -: | -: | -: | -: |
 | 10| 2.2e-05| 0.000135| 2e-05| 2e-05| 1.9e-05| 1.9e-05| 2e-05| 1200| 2684| 1200| 1200| 1200| 1200| 1200| 
 | 20| 0.00011| 0.000904| 0.000151| 0.000107| 0.00011| 0.000151| 0.000222| 4800| 17988| 7600| 4800| 4800| 4800| 4800| 
 | 30| 0.000349| 0.003172| 0.000403| 0.000383| 0.000371| 0.000348| 0.000333| 10800| 48656| 17100| 10800| 10800| 10800| 10800| 
