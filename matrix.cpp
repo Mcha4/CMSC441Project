@@ -21,7 +21,7 @@ matrix::matrix(int row, int col){
         data[i] = new double[cols];
     }
 
-    memoryUsage = rows * cols * sizeof(int);
+    memoryUsage = (double)rows * (double)cols * (double)sizeof(int);
 }
 
 matrix::~matrix(){
@@ -42,7 +42,7 @@ int matrix::getCols(){
 double** matrix::getData(){
     return data;
 }
-int matrix::getMemory(){
+double matrix::getMemory(){
     return memoryUsage;
 }
 
@@ -134,9 +134,9 @@ matrix* matrix::strassenMatrix(matrix* A, matrix* B){
         memoryUsage += M1.getMemory() + M2.getMemory() + M3.getMemory() + M4.getMemory() + M5.getMemory() + M6.getMemory() + M7.getMemory();
 
         C11.subMatrix(temp1.addMatrix(&M1, &M4), temp2.addMatrix(&M5, &M7));
-            C12.addMatrix(&M3, &M5);
-            C21.addMatrix(&M2, &M4);
-            C22.addMatrix(temp1.subMatrix(&M1, &M2), temp2.addMatrix(&M3, &M6));
+        C12.addMatrix(&M3, &M5);
+        C21.addMatrix(&M2, &M4);
+        C22.addMatrix(temp1.subMatrix(&M1, &M2), temp2.addMatrix(&M3, &M6));
 
         for(int i=0; i< matrixSize; i++){
             for(int j=0; j< matrixSize; j++) {
@@ -228,15 +228,22 @@ void matrix::printMatrix(){
             cout << endl;
         }
     } else {
-        cout << "| " << "Size" << "| " << "BasicTime(s)" << "| " << "StarssenTime(s)" << "| " << "BasicM(bytes)" << "| " << "StarssenM(bytes)" << " | " << endl;
-        cout << "| -: | -: | -: | -: | -: |" << endl;
+        cout << "| " << "Row&Col" << "| " << "BasicTime(s)" << "| " << "StarssenTime(s) 32" << "| " << "StarssenTime(s) 64" << "| " << "StarssenTime(s) 128" << "| " << "StarssenTime(s) 256";
+        cout << "| " << "BasicMemory(Bytes)" << "| " << "StarssenMemory(Bytes) 32" << "| " << "StarssenMemory(Bytes) 64" << "| " << "StarssenMemory(Bytes) 128" << "| " << "StarssenMemory(Bytes) 256" << "| " << endl;
+        cout << "| -: | -: | -: | -: | -: | -: | -: | -: | -: | -: | -: |" << endl;
         //cout << setw(6) << "Size" << setw(16) << "BasicT" << setw(16) << "StarssenT" << setw(16) << "BasicM" << setw(16) << "StarssenM" << endl;
         for(int i = 0; i < rows; i++){
             cout << "| " << data[i][0];
             cout << "| " << data[i][1];
             cout << "| " << data[i][2];
             cout << "| " << data[i][3];
-            cout << "| " << data[i][4] << "| " << endl;
+            cout << "| " << data[i][4];
+            cout << "| " << data[i][5];
+            cout << "| " << data[i][6];
+            cout << "| " << data[i][7];
+            cout << "| " << data[i][8];
+            cout << "| " << data[i][9];
+            cout << "| " << data[i][10] << "| " << endl;
         }
 
     }

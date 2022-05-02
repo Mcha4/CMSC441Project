@@ -18,7 +18,7 @@ class matrix{
         double** getData();
         void setData(int row, int col, double input);
         void printMatrix();
-        int getMemory();
+        double getMemory();
         
         matrix* addMatrix(matrix* A, matrix* B);
         matrix* subMatrix(matrix* A, matrix* B);
@@ -30,5 +30,5 @@ class matrix{
         int rows;
         int cols;
         double **data;
-        int memoryUsage;
+        double memoryUsage;
 };
